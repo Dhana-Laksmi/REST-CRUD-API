@@ -2,12 +2,15 @@ const express = require("express");
 
 const { AirplaneController } = require("../../controllers");
 const router = express.Router();
-
+const { AirplaneMiddlewares } = require("../../middlewares");
 
 /**
- * URL: /api/v1/airplanes 
+ * URL: /api/v1/airplanes
  * Method: POST
- *  */  
-router.post('/', AirplaneController.createAirplane);
-console.log("inside a Airplane Routes");
+ *  */
+router.post(
+  "/",
+  AirplaneMiddlewares.validateCreateRequest,
+  AirplaneController.createAirplane
+);
 module.exports = router;
