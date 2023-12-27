@@ -1,9 +1,5 @@
 This is a base node js project template, which anyone can use as it has been prepared, by keeping some of the most important code principles and project management recommendations. Feel free to change anything. 
 
-$ git clone https://Dhana-Laksmi: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@github.com/singhsanket143/Base-Node-Project-Template.git
-
-$ git push https://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@github.com/Dhana-Laksmi/Backend.git
-
 `src` -> Inside the src folder all the actual source code regarding the project will reside, this will not include any kind of tests. (You might want to make separate tests folder)
 
 Lets take a look inside the `src` folder
