@@ -13,5 +13,24 @@ router.post(
   AirplaneMiddlewares.validateCreateRequest,
   AirplaneController.createAirplane
 );
-router.get('/',AirplaneController.getAirplanes);
+
+/**
+ * URL: /api/v1/airplanes
+ * Method: GET
+ *  */
+router.get("/", AirplaneController.getAirplanes);
+
+/**
+ * URL: /api/v1/airplanes/:id
+ * Method: GET
+ *  */
+router.get("/:id", AirplaneController.getAirplane);
+
+/**
+ * URL: /api/v1/airplanes/:id
+ * Method: DELETE
+ *  */
+
+router.delete('/:id',AirplaneController.destroyAirplane);
+
 module.exports = router;
