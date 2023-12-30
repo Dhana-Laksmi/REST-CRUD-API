@@ -44,7 +44,6 @@ async function getAirplane(req, res) {
     SuccessResponse.data = airplane;
     return res.status(StatusCodes.OK).json(SuccessResponse);
   } catch (error) {
-    console.log("error-get",error);
     ErrorResponse.error = error;
     return res.status(error.statusCode).json(ErrorResponse);
   }
@@ -56,10 +55,26 @@ async function destroyAirplane(req, res) {
     SuccessResponse.data = response;
     return res.status(StatusCodes.OK).json(SuccessResponse);
   } catch (error) {
-    console.log("error-get",error);
     ErrorResponse.error = error;
     return res.status(error.statusCode).json(ErrorResponse);
   }
 }
-
-module.exports = { createAirplane, getAirplanes, getAirplane,destroyAirplane };
+async function updateAirplane(req, res) {
+  try {
+    const response = await AirplaneService.updateAirplane(req.params.id, {
+      capacity: req.body.capacity,
+    });
+    SuccessResponse.data = response;
+    return res.status(StatusCodes.OK).json(SuccessResponse);
+  } catch (error) {
+    ErrorResponse.error = error;
+    return res.status(error.statusCode).json(ErrorResponse);
+  }
+}
+module.exports = {
+  createAirplane,
+  getAirplanes,
+  getAirplane,
+  destroyAirplane,
+  updateAirplane,
+};
