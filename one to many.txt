@@ -1,0 +1,11 @@
+
+`To create model using generate`:
+
+npx sequelize model:generate --name Flight --attributes flightNumber:string,airplaneId:integer,departureAirportId:integer,arrivalAirportId:integer,arrivalTime:date,departureTime:date,price:integer,boardingGate:string,totalSeats:integer
+ 
+ ----------------------------------------------------------
+ ----------------------------------------------------------
+
+ 'To create table using migration file':
+
+  npx sequelize db:migrate

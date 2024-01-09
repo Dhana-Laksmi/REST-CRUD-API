@@ -9,7 +9,7 @@ module.exports = {
       fields: ["cityId"],
       references: {
         table: "Cities",
-        field: 'id',
+        field: "id",
       },
       onUpdate: "CASCADE",
       onDelete: "CASCADE",
@@ -17,6 +17,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.removeConstraint("Airports","city_fkey_constraint");
+    await queryInterface.removeConstraint("Airports", "city_fkey_constraint");
   },
 };
