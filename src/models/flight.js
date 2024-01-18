@@ -13,13 +13,19 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey:'airplaneId',
         onDelete:'CASCADE',
         onUpdate:'CASCADE'
-      })
+      });
 
       this.belongsTo(models.Airport,{
-        foreignKey:'code',
+        foreignKey:'departureAirportId',
         onDelete:'CASCADE',
         onUpdate:'CASCADE'
-      })
+      });
+
+      this.belongsTo(models.Airport,{
+        foreignKey:'arrivalAirportId',
+        onDelete:'CASCADE',
+        onUpdate:'CASCADE'
+      });
     }
   }
   Flight.init(
@@ -38,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: "CASCADE",
       },
       departureAirportId: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
         references: {
           model: "Airport",
@@ -47,7 +53,7 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: "CASCADE",
       },
       arrivalAirportId: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
         references: {
           model: "Airport",
@@ -70,7 +76,7 @@ module.exports = (sequelize, DataTypes) => {
       boardingGate: {
         type: DataTypes.STRING,
       },
-      totalSeats: {
+      totalSeats: { //total remaining seats
         type: DataTypes.INTEGER,
         allowNull: false,
       },
