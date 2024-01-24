@@ -9,22 +9,19 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.Airplane,{
-        foreignKey:'airplaneId',
-        onDelete:'CASCADE',
-        onUpdate:'CASCADE'
+      this.belongsTo(models.Airplane, {
+        foreignKey: "airplaneId",
+        as: "airplaneDetail",
       });
 
-      this.belongsTo(models.Airport,{
-        foreignKey:'departureAirportId',
-        onDelete:'CASCADE',
-        onUpdate:'CASCADE'
+      this.belongsTo(models.Airport, {
+        foreignKey: "departureAirportId",
+        as: "departureAirport",
       });
 
-      this.belongsTo(models.Airport,{
-        foreignKey:'arrivalAirportId',
-        onDelete:'CASCADE',
-        onUpdate:'CASCADE'
+      this.belongsTo(models.Airport, {
+        foreignKey: "arrivalAirportId",
+        as: "arrivalAirport",
       });
     }
   }
@@ -38,8 +35,8 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          table: "Airplane",
-          field: "id",
+          model: "Airplane",
+          key: "id",
         },
         onDelete: "CASCADE",
       },
@@ -76,7 +73,8 @@ module.exports = (sequelize, DataTypes) => {
       boardingGate: {
         type: DataTypes.STRING,
       },
-      totalSeats: { //total remaining seats
+      totalSeats: {
+        //total remaining seats
         type: DataTypes.INTEGER,
         allowNull: false,
       },
